@@ -3,8 +3,14 @@ variable "region" {
   type        = string
 }
 
+variable "environment" {
+  description = "Environment tag (e.g., dev, prod)"
+  type        = string
+  default     = "dev"
+}
+
 variable "subnet_id" {
-  description = "Subnet ID for SageMaker and other resources"
+  description = "Subnet ID for deploying resources like SageMaker"
   type        = string
 }
 
@@ -17,9 +23,4 @@ variable "db_password" {
   description = "Password for the RDS Postgres database"
   type        = string
   sensitive   = true
-}
-
-variable "ami" {
-  description = "AMI for EC2 instance"
-  type        = string
 }

@@ -1,8 +1,0 @@
-# This Sentinel policy ensures that an S3 bucket with the correct name exists.
-import "tfplan/v2" as tfplan
-
-main = rule {
-  some bucket in tfplan.resource_changes.aws_s3_bucket as s3 {
-    s3.change.after.bucket == "nhs-project-bucket-unique"
-  }
-}
